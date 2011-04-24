@@ -88,7 +88,6 @@ namespace Poker.Tests
         }
     }
 
-    [Ignore]
     [TestClass]
     public class PokerHandInterpreterTest_Given_a_straight_hand
     {

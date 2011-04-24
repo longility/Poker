@@ -50,7 +50,26 @@ namespace Poker
 
         private static bool IsAStraight(IEnumerable<Card> cards)
         {
-            return false;
+            int consecutiveCount = 0;
+
+            if(cards.Count(c => c.Value.Equals(CardValue.Ace)) == 1 &&
+                cards.Count(c => c.Value.Equals(CardValue.Two)) == 1)
+                consecutiveCount++;
+            for(int i = (int)CardValue.Two; i <= (int)CardValue.King; i++)
+            {
+                if(cards.Count(c => (int)c.Value == i) > 1)
+                    return false;
+                else if(cards.Count(c => (int)c.Value == i) == 1)
+                    consecutiveCount++;
+                else if(consecutiveCount > 1)
+                    break;
+            }
+
+            if(cards.Count(c => c.Value.Equals(CardValue.King)) == 1 &&
+                cards.Count(c => c.Value.Equals(CardValue.Ace)) == 1)
+                consecutiveCount++;
+
+            return consecutiveCount == cards.Count();
         }
 
         private static bool HasAThreeOfAKind(IEnumerable<Card> cards)
