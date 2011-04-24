@@ -151,4 +151,25 @@ namespace Poker.Tests
             Assert.AreEqual(PokerHand.FullHouse, pokerHand);
         }
     }
+
+    [TestClass]
+    public class PokerHandInterpreterTest_Given_a_four_of_a_kind_hand
+    {
+        [TestMethod]
+        public void When_interpreted_Then_should_be_a_full_house()
+        {
+            IEnumerable<Card> cards = new List<Card>()
+			{
+				new Card(CardValue.Two, CardSuit.Spade),
+                new Card(CardValue.Two, CardSuit.Heart),
+                new Card(CardValue.Two, CardSuit.Diamond),
+                new Card(CardValue.Two, CardSuit.Club),
+                new Card(CardValue.Three, CardSuit.Heart)
+            };
+
+            PokerHand pokerHand = PokerHandInterpreter.Interpret(cards);
+
+            Assert.AreEqual(PokerHand.FourOfAKind, pokerHand);
+        }
+    }
 }

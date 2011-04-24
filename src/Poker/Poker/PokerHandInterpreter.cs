@@ -8,7 +8,9 @@ namespace Poker
     {
         public static PokerHand Interpret(IEnumerable<Card> cards)
         {
-            if(IsFullHouse(cards))
+            if(HasAFourOfAKind(cards))
+                return PokerHand.FourOfAKind;
+            else if(IsFullHouse(cards))
                 return PokerHand.FullHouse;
             else if(IsAFlush(cards))
                 return PokerHand.Flush;
@@ -22,6 +24,11 @@ namespace Poker
                 return PokerHand.Pair;
             else
                 return PokerHand.HighCard;
+        }
+
+        private static bool HasAFourOfAKind(IEnumerable<Card> cards)
+        {
+            return GetSameCardValues(4, cards).Count() > 0;
         }
 
         private static bool IsFullHouse(IEnumerable<Card> cards)
