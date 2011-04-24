@@ -6,11 +6,11 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F5165C3A-AEC0-4C39-8DD2-5735533D6CA3}</ProjectGuid>
+    <ProjectGuid>{DA45F1F9-B929-4582-8C4B-5AA20B0C6DE3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Poker.Tests</RootNamespace>
-    <AssemblyName>Poker.Tests</AssemblyName>
+    <RootNamespace>PlayingCards.Tests</RootNamespace>
+    <AssemblyName>PlayingCards.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -45,18 +45,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PokerHandInterpreterTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\PlayingCards\PlayingCards.csproj">
-      <Project>{4BBBB3BE-692F-4861-BF89-4BD483706AD9}</Project>
-      <Name>PlayingCards</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Poker\Poker.csproj">
-      <Project>{838212E5-BD11-4947-8435-BABF66C8D1C3}</Project>
-      <Name>Poker</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
