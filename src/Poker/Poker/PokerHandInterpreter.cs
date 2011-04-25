@@ -8,7 +8,11 @@ namespace Poker
     {
         public static PokerHand Interpret(IEnumerable<Card> cards)
         {
-            if(HasAFourOfAKind(cards))
+            if(IsARoyalFlush(cards))
+                return PokerHand.RoyalFlush;
+            else if(IsAFlush(cards) && IsAStraight(cards))
+                return PokerHand.StraightFlush;
+            else if(HasAFourOfAKind(cards))
                 return PokerHand.FourOfAKind;
             else if(IsFullHouse(cards))
                 return PokerHand.FullHouse;
@@ -24,6 +28,11 @@ namespace Poker
                 return PokerHand.Pair;
             else
                 return PokerHand.HighCard;
+        }
+
+        private static bool IsARoyalFlush(IEnumerable<Card> cards)
+        {
+            return IsAFlush(cards) && IsAStraight(cards) && cards.Count(c => c.Value.Equals(CardValue.Ten)) == 1 && cards.Count(c => c.Value.Equals(CardValue.Ace)) == 1;
         }
 
         private static bool HasAFourOfAKind(IEnumerable<Card> cards)
